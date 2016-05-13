@@ -24,4 +24,7 @@ describe User do
     expect(@user.password).to eq('qwerty')
   end
 
+  it { should have_many :rounds }
+  it { should have_many :photos }
+
 end
