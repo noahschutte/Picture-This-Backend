@@ -1,0 +1,13 @@
+<div class="logo">Picture This</div>
+<div class="login-form">
+	<%= form_tag sessions_path do %>
+    <%= label_tag :email %><br>
+	  <%= email_field_tag :email %><br>
+	  <%= label_tag :password %><br>
+	  <%= password_field_tag :password %><br>
+	  <%= submit_tag "Login" %>
+ 	<% end %>
+</div>
+<div>
+<%= link_to "Register", new_user_path %>
+</div>

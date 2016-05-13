@@ -1,0 +1,13 @@
+<%= link_to "Logout", logout_path %>
+<div class="logo">Picture This</div>
+<div class="list-header">Closed Rounds</div>
+<ul class="list-rounds">
+  <% @rounds.each do |round| %>
+    <li class="round">
+      <%= round.creator.first_name %>
+      <%= link_to "Gallery", round_photos_path(round) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Open Rounds", user_rounds_path(@user) %>
+<%= link_to "New Round", user_decks_path(@user) %>

@@ -1,0 +1,8 @@
+<div class="photo-list-header">Round Photos:</div>
+<ul>
+<% @photos.each do |photo| %>
+  <li>
+  <%= photo.user_id.name %>
+  </li>
+<% end %>
+</ul>
