@@ -12,7 +12,16 @@ describe User do
     )
   end
 
-  it "shows the user's first name" do
+  it "has a first name" do
     expect(@user.first_name).to eq('Milan')
   end
+
+  it "has an email" do
+    expect(@user.email).to eq('milan@milan.milan')
+  end
+
+  it "has a password" do
+    expect(@user.password).to eq('qwerty')
+  end
+
 end
