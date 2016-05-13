@@ -15,4 +15,5 @@ describe Prompt do
     expect(@prompt.body).to eq('Outlandish')
   end
 
+  # it { should belong_to :deck } refactor here?
 end
