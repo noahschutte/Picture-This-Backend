@@ -1,0 +1,7 @@
+<%= link_to "Back", user_rounds_path(@user) %>
+<div class="deck-list-header">Choose a Deck:</div>
+<ul class="deck-list">
+  <% @decks.each do |deck| %>
+  <li><%= deck.name %></li>
+  <% end %>
+</ul>
