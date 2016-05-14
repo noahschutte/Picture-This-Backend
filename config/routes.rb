@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :rounds, only: [:new]
   resources :rounds, only: [:show] do
     resources :photos, only: [:index, :show]
+    resources :prompts, only: [:show]
   end
 end
