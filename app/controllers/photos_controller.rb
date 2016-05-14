@@ -22,6 +22,10 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find_by(id: params[:id])
     @round = Round.find_by(id: params[:round_id])
+
+    render :json => {
+      photo: { user_id: @photo.user.id, first_name: @photo.user.first_name, prompt: @photo.prompt.body, url: @photo.image_url }
+    }
   end
 
   def create
