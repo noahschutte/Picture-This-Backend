@@ -4,6 +4,7 @@
   <% @rounds.each do |round| %>
     <li class="round">
       <%= round.creator.first_name %>
+      <%= link_to "Prompt", round_path(round) %>
     </li>
   <% end %>
 </ul>

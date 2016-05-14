@@ -1,8 +1,14 @@
 <div class="photo-list-header">Round Photos:</div>
+Submitted:<br>
 <ul>
+  <li><%= link_to "Photo Link", round_photo_path(@round, @photo) %></li>
 <% @photos.each do |photo| %>
+  <!-- Remove this example link -->
   <li>
-  <%= photo.user_id.name %>
+  <%= photo.user.first_name %>
   </li>
 <% end %>
 </ul>
+Invited:<br>
+<%= link_to "Open Rounds", user_rounds_path(@user) %>
+<%= link_to "Closed Rounds", user_path(@user) %>
