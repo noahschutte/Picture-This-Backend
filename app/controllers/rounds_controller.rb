@@ -8,10 +8,7 @@ class RoundsController < ApplicationController
 
     def index
       @user = User.find_by(id: params[:user_id])
-      # Where rounds are open
-      @rounds = @user.rounds
-      # This includes all rounds where a user is a participant
-      # Need to downselect to rounds that are still open
+      @rounds = open_rounds(@user)
     end
 
     def new

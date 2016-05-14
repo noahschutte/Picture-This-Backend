@@ -1,5 +1,5 @@
 class Round < ActiveRecord::Base
-  validates :creator_id, :prompt_id, presence: true
+  validates :creator_id, :prompt_id, :end_time, presence: true
 
   has_many :round_invites
   has_many :invites, through: :round_invites
@@ -10,10 +10,10 @@ class Round < ActiveRecord::Base
   belongs_to :prompt
 
   def open_rounds(user)
-    # user.rounds.where(end_time: < DateTime.now)
+    user.rounds.where("end_time < ?", DateTime.now).count
   end
 
   def closed_rounds(user)
-    # user.rounds.where(end_time: < DateTime.now)
+    user.rounds.where("end_time > ?", DateTime.now).count
   end
 end

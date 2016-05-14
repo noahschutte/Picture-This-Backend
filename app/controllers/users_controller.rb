@@ -18,8 +18,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: session[:user_id])
     @rounds = closed_rounds(@user)
-    # This includes all rounds where a user is a participant
-    # Need to downselect to rounds that are closed
   end
 
   private
