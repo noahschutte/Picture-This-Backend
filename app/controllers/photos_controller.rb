@@ -13,12 +13,14 @@ class PhotosController < ApplicationController
     @round = Round.find_by(id: params[:round_id])
   end
 
-  def new
-    @photo = Photo.new()
+  def create
+    @photo = Photo.create!(photo_params)
+    # will need error message handling here
+    redirect_to round_path(params[:round_id])
   end
 
   def create
-    @photo = Photo.create!(photo_params)
+    @photo = Photo.create!(image: params[:image], round_id: params[:round_id], user_id: params[:user_id], prompt_id: params[:prompt_id])
     # will need error message handling here
     redirect_to round_path(params[:round_id])
   end
