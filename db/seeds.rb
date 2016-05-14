@@ -13,9 +13,15 @@ Deck.create(name: "Frenemies")
 end
 
 [1,2,3,4,5].each do |num|
-  Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now)
-  round1 = Round.find_by(id: num)
-  round1.participants << noah
-  round1.participants << theo
-  round1.participants << dan
+  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
+  round.participants << noah
+  round.participants << theo
+  round.participants << dan
+end
+
+[1,2,3,4,5].each do |num|
+  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
+  round.participants << noah
+  round.participants << theo
+  round.participants << dan
 end

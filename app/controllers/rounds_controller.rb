@@ -14,4 +14,8 @@ class RoundsController < ApplicationController
     def new
     end
 
+    def open_rounds(user)
+      user.rounds.where("end_time < ?", DateTime.now)
+    end
+
 end

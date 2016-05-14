@@ -10,7 +10,6 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find_by(id: params[:id])
-    # Erase this hard-coded example
     @round = Round.find_by(id: params[:round_id])
   end
 
@@ -19,9 +18,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    binding.pry
     @photo = Photo.create!(photo_params)
-    binding.pry
     # will need error message handling here
     redirect_to round_path(params[:round_id])
   end
