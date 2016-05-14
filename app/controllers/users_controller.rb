@@ -17,15 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
-    @rounds = []
+    # Where rounds are closed
+    @rounds = @user.rounds
     # Need to resolve @user.id not equal to p.id
-    Round.all.each do |r|
-      r.participants.each do |p|
-        if p.id == @user.id
-          @rounds << r
-        end
-      end
-    end
   end
 
   private
