@@ -1,4 +1,11 @@
 <div class="logo">Picture This</div>
+<% if @errors %>
+	<ul class="errors">
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+	</ul>
+<% end %>
 <div class="login-form">
 	<%= form_for @user do |f| %>
     <%= f.label :first_name %><br>

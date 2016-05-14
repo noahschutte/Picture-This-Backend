@@ -10,8 +10,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_rounds_path(@user)
     else
-      render "new"
       #error message handling needed
+      @errors = @user.errors.full_messages
+      render "new"
     end
   end
 
@@ -26,7 +27,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    binding.pry
     params.require(:user).permit(:first_name, :last_name, :email, :phone, :password)
   end
 
