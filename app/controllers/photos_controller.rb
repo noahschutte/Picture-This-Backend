@@ -20,9 +20,14 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.create!(image: params[:image], round_id: params[:round_id], user_id: params[:user_id], prompt_id: params[:prompt_id])
+    @photo = Photo.new(image: params[:image], round_id: params[:round_id], user_id: params[:user_id], prompt_id: params[:prompt_id])
+    # Need control flow constraint on pressing submit without picture attached
     # will need error message handling here
-    redirect_to round_path(params[:round_id])
+    if @photo.save
+      redirect_to round_path(params[:round_id])
+    else
+
+    end
   end
 
   private
