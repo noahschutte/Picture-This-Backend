@@ -14,4 +14,7 @@ class PhotosController < ApplicationController
     @round = Round.find_by(id: params[:round_id])
   end
 
+  def post
+    
+  end
 end

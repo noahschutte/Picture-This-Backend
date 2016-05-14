@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, :phone, :password, presence: true
   validates :email, :phone, uniqueness: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
   has_many :participant_rounds, foreign_key: :participant_id
   # has_many :rounds, foreign_key: :creator_id ## Is this line necessary?
