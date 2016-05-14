@@ -4,6 +4,9 @@
 <button type="button" name="button">Camera</button><br>
 Submitted:<br>
 
+<% form_for @photo, :html => { :multipart => true } do |f| %>
+  <%= f.file_field :image %>
+<% end %>
 
 <%= link_to "Open Rounds", user_rounds_path(@user) %>
 <%= link_to "Closed Rounds", user_path(@user) %>
