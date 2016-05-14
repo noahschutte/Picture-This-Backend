@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :phone, :password, presence: true
   validates :email, :phone, uniqueness: true
 
-  has_many :participant_rounds
+  has_many :participant_rounds, foreign_key: :participant_id
   # has_many :rounds, foreign_key: :creator_id ## Is this line necessary?
   has_many :rounds, through: :participant_rounds
   has_many :photos
