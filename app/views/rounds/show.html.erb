@@ -1,11 +1,14 @@
 <div class="prompt-intro">Find Something:</div>
 <%= @prompt.body %><br>
 <%= @round.created_at %><br>
-<button type="button" name="button">Camera</button><br>
-Submitted:<br>
+<!-- <button type="button" name="button">Camera</button><br> -->
+<!-- Submitted:<br> -->
 
-<% form_tag @photo, :html => { :multipart => true } do |f| %>
-  <%= f.file_field :image %>
+<%= form_tag round_photos_path(@round.id), :html => { :multipart => true } do %>
+  <%= file_field_tag :image %>
+  <%= hidden_field_tag 'prompt_id', "#{@prompt.id}" %>
+  <%= hidden_field_tag 'user_id', "#{@user.id}" %>
+  <%= submit_tag "Post that shizz" %>
 <% end %>
 
 <%= link_to "Open Rounds", user_rounds_path(@user) %>
