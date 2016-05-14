@@ -2,6 +2,9 @@
 <div class="deck-list-header">Choose a Deck:</div>
 <ul class="deck-list">
   <% @decks.each do |deck| %>
-  <li><%= deck.name %></li>
+  <li>
+    <%= link_to "#{deck.name}", prompt_contacts_path(@prompt)%>
+  </li>
+
   <% end %>
 </ul>

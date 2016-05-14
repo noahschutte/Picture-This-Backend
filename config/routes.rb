@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :prompts, only: [:show]
   end
 
+  resources :prompts, only: [:show] do
+    resources :contacts, only: [:index]
+  end
+
 end

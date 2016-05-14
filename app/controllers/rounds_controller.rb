@@ -12,9 +12,9 @@ class RoundsController < ApplicationController
 
       @rounds = open_rounds(@user)
       if request.xhr?
-        "#{@rounds}"
+        return "#{@rounds}"
       else
-        "bad request"
+        return "bad request"
       end
     end
 
