@@ -14,7 +14,7 @@ class RoundsController < ApplicationController
       if request.xhr?
         "#{@rounds}"
       else
-
+        "bad request"
       end
     end
 
