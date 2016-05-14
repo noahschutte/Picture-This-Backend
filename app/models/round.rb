@@ -9,11 +9,4 @@ class Round < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: :creator_id
   belongs_to :prompt
 
-  def open_rounds(user)
-    user.rounds.where("end_time < ?", DateTime.now).count
-  end
-
-  def closed_rounds(user)
-    user.rounds.where("end_time > ?", DateTime.now).count
-  end
 end

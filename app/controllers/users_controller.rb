@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @rounds = closed_rounds(@user)
   end
 
+  def closed_rounds(user)
+    user.rounds.where("end_time > ?", DateTime.now)
+  end
+
   private
   def user_params
     binding.pry

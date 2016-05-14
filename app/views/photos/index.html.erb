@@ -1,9 +1,9 @@
 <div class="photo-list-header">Round Photos:</div>
 Submitted:<br>
 <ul>
+  <!-- Remove this example link -->
   <li><%= link_to "Photo Link", round_photo_path(@round, @photo) %></li>
 <% @photos.each do |photo| %>
-  <!-- Remove this example link -->
   <li>
   <%= photo.user.first_name %>
   </li>
