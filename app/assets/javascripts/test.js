@@ -3,6 +3,6 @@ $(document).ready(function(event){
     }).done(function(response){
       //add parse logic, probably
       // args.rounds = response;
-      console.log(response);
+      console.log();
   });
 });
