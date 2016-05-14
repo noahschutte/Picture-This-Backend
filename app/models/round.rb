@@ -10,10 +10,10 @@ class Round < ActiveRecord::Base
   belongs_to :prompt
 
   def open_rounds(user)
-    user.rounds.where(end_time: < DateTime.now)
+    # user.rounds.where(end_time: < DateTime.now)
   end
 
   def closed_rounds(user)
-    user.rounds.where(end_time: < DateTime.now)
+    # user.rounds.where(end_time: < DateTime.now)
   end
 end

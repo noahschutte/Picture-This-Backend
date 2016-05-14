@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160513161727) do
   create_table "rounds", force: :cascade do |t|
     t.integer  "creator_id", null: false
     t.integer  "prompt_id",  null: false
+    t.datetime "end_time",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

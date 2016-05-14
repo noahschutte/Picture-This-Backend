@@ -7,13 +7,15 @@ Deck.create(name: "Friends")
 Deck.create(name: "Frenemies")
 
 [1,2,3].each do |deck|
-  [1,2,3,4,5].each do
-    Prompt.create(deck_id: deck, body: "Some Card")
+  [1,2,3,4,5].each do |num|
+    Prompt.create(deck_id: deck, body: "#{rand(999)}")
   end
 end
 
-Round.create(creator_id: 1, prompt_id: 1)
-round1 = Round.find_by(id: 1)
-round1.participants << noah
-round1.participants << theo
-round1.participants << dan
+[1,2,3,4,5].each do |num|
+  Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now)
+  round1 = Round.find_by(id: num)
+  round1.participants << noah
+  round1.participants << theo
+  round1.participants << dan
+end
