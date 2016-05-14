@@ -7,7 +7,6 @@ class RoundsController < ApplicationController
     end
 
     def index
-
       @user = User.find_by(id: params[:user_id])
       @rounds = open_rounds(@user)
       # if request.xhr?
