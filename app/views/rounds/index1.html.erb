@@ -1,0 +1,13 @@
+<div class="logo">Picture This</div>
+<div class="list-header">Open Rounds</div>
+<ul class="list-rounds">
+  <% @rounds.each do |round| %>
+    <li class="round">
+      <%= round.creator.first_name %>
+      <%= link_to "Prompt", round_path(round) %>
+      <%= round.id %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Closed Rounds", user_path(@user) %>
+<%= link_to "New Round", user_decks_path(@user) %>
