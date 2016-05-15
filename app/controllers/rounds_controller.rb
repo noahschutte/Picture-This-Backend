@@ -35,6 +35,7 @@ class RoundsController < ApplicationController
   end
 
   def create
+    binding.pry
     @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id]))
 
     participants = []
