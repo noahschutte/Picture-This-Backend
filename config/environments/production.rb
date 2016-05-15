@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.debug_exception_response_format = :default
-  proxy_set_header X-Forwarded-Proto $scheme
+  # proxy_set_header X-Forwarded-Proto $scheme
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
