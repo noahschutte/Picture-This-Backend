@@ -30,7 +30,7 @@ class RoundsController < ApplicationController
     end
 
     def create
-      @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id])
+      @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id]))
 
       participants = []
 
