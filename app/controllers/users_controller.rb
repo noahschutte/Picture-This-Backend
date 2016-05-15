@@ -5,15 +5,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_rounds_path(@user)
-    else
-      #error message handling needed
-      @errors = @user.errors.full_messages
-      render "new"
-    end
+    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
+    # if @user.save
+    #   session[:user_id] = @user.id
+    #   redirect_to user_rounds_path(@user)
+    # else
+    #   #error message handling needed
+    #   @errors = @user.errors.full_messages
+    #   render "new"
+    # end
+    render :json => { user_id: @user.id }
   end
 
   def show
