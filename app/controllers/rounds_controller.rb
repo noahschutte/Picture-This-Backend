@@ -1,4 +1,5 @@
 class RoundsController < ApplicationController
+  after_action :set_access_control_headers
 
     def show
       @round = Round.find_by(id: params[:id])
