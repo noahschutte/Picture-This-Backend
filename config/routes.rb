@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :users, only:[:new, :create, :show] do
     resources :rounds, only: [:index]
   end
-  
+
   resources :decks, only: [:index]
   resources :photos, only: [:show]
-  resources :rounds, only: [:new]
+  resources :rounds, only: [:new, :create]
 
   resources :rounds, only: [:show] do
     resources :photos, only: [:index, :create]
