@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
   after_action :set_access_control_headers
-  protect_from_forgery :except => :create
+  # protect_from_forgery :except => :create
 
 
   def set_access_control_headers
