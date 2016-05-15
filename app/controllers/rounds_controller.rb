@@ -2,7 +2,6 @@ class RoundsController < ApplicationController
   after_action :set_access_control_headers
   # protect_from_forgery :except => :create
 
-
   def set_access_control_headers
     headers['Access-Control-Allow-Origin'] = "*"
     headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
