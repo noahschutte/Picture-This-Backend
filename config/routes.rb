@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :decks, only: [:index]
-  resources :photos, only: [:show]
+  resources :photos, only: [:show, :create]
   resources :rounds, only: [:new, :create]
 
   resources :rounds, only: [:show] do
-    resources :photos, only: [:index, :create]
+    resources :photos, only: [:index]
   end
 
 end
