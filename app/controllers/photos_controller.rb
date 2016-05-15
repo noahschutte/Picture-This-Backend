@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
         pending << { id: participant.id, first_name: participant.first_name, photo: "" }
       end
     end
-    render :json => { participants: [submitted, pending] }
+    render :json => { participants: {submitted: submitted, pending: pending} }
   end
 
   def show
