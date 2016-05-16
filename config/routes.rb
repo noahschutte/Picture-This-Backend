@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     resources :rounds, only: [:index]
   end
 
-  resources :rounds, only: [:create]
-  resources :rounds, only: [:show] do
+  resources :rounds, only: [:create] do
     resources :photos, only: [:index]
   end
 

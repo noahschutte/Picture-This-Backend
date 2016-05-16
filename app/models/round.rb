@@ -9,21 +9,16 @@ class Round < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: :creator_id
   belongs_to :prompt
 
-  def self.open_rounds(user)
-    user.rounds.where("end_time > ?", DateTime.now).select do |round|
-      if round.photos.where(user_id: user.id).empty?
-        {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
-      end
-    end
+  def has_photos?(user_id)
+    self.photos.any?{ |photo| photo.user_id == user_id}
   end
 
-  def self.submitted_rounds(user)
-    user.rounds.where("end_time > ?", DateTime.now).select do |round|
-      unless round.photos.where(user_id: user.id).empty?
-        binding.pry
-        {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
-      end
-    end
+  def attr_hash
+    {round_id: self.id, creator_id: self.creator_id, creator_first_name: self.creator.first_name, prompt: self.prompt.body, end_time: self.end_time}
+  end
+
+  def self.formatted(round)
+    {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
   end
 
 end
