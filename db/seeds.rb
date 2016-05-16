@@ -19,8 +19,12 @@ prompts = [
   "elated" ]
 
 def random_prompt(prompts)
-  prompts.shuffle
-  return prompts.pop
+  prompt = prompts.sample
+  if Prompt.find_by(body: prompt)
+    random_prompt(prompts)
+  else
+    return prompt
+  end
 end
 
 # Decks seed
@@ -75,28 +79,29 @@ act_it_out_prompts = [
 ]
 
 selfies_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+  Prompt.create!(body: random_prompt(selfies_prompts), deck_id: 1) # Do I have to randomly populate the decks with prompts? Something to consider. Alternatievly I could just call .pop on the container of prompts.
 end
 
-selfies_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+celeb_impressions_prompts.length.times do
+  Prompt.create(body: random_prompt(celeb_impressions_prompts), deck_id: 2)
 end
 
-selfies_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+find_something_prompts.length.times do
+  Prompt.create(body: random_prompt(find_something_prompts), deck_id: 3)
 end
 
-selfies_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+out_and_about_prompts.length.times do
+  Prompt.create(body: random_prompt(out_and_about_prompts), deck_id: 4)
 end
 
-selfies_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 5)
+pets_prompts.length.times do
+  Prompt.create(body: random_prompt(pets_prompts), deck_id: 5)
 end
 
 act_it_out_prompts.length.times do
-  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 6)
+  Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 6)
 end
+binding.pry
 
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "9293348660", password: "theo")
