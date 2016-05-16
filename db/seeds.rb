@@ -23,16 +23,54 @@ def random_prompt(prompts)
   return prompts.pop
 end
 
-noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
-theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "7654321", password: "theo")
-dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "7777777", password: "dan")
+# Decks seed
 
-Deck.create(name: "Selfies")
+Deck.create(name: "Strike A Pose")
 Deck.create(name: "Celebrity Impressions")
 Deck.create(name: "Find Something")
 Deck.create(name: "Out And About")
 Deck.create(name: "Pets")
 Deck.create(name: "Act It Out")
+
+selfies_prompts = [
+  'Duck Face', # Could be wittier, cooler, etc...
+  "Lookin' Fly",
+  "New Outfit", # Could be wittier, cooler, etc...
+  "Goofy",
+  "Food", # Rethink? Should this be here or can it be its own deck? Later...
+  "Groupie"
+]
+
+celeb_impressions_prompts = [
+  "Robert De Niro",
+  "Al Pacino",
+  "Batman", # More references to pop culture?
+  "Zoolander",
+  "Sean Connery" # 'Just like your mother, Tribek.'
+]
+
+find_something_prompts = [
+  "What's That Smell",
+  "Next Greatest Trend",
+  "Next Best Thing",
+  "Inspiration Du Jour"
+]
+
+out_and_about_prompts = [
+  "Landmark",
+  "Scenery",
+  "Sunrise/Sunset"
+]
+
+pets_prompts = [
+  "Cute",
+  "Chillin'",
+  "PLaying with its favourite toy"
+]
+
+noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
+theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "7654321", password: "theo")
+dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "7777777", password: "dan")
 
 # Prompts Seed -- 15 prompts in total
 # Deck.all.each do |deck|
