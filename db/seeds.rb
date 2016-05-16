@@ -31,7 +31,7 @@ Deck.create(name: "Family")
 Deck.create(name: "Friends")
 Deck.create(name: "Frenemies")
 
-# Prompts Seed
+# Prompts Seed -- 15 prompts in total
 Deck.all.each do |deck|
   5.times do
     Prompt.create(deck_id: deck.id, body: random_prompt(prompts))
