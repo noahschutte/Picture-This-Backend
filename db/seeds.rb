@@ -109,12 +109,14 @@ def random_number(digits)
 end
 
  ## Randos
-7.times do
+17.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   full_name = "#{first_name} #{last_name}"
   User.create(first_name: first_name, last_name: last_name, email:Faker::Internet.email(full_name), phone: random_phone_number, password:"#{first_name.downcase}")
 end
+
+ # Rounds Seed
 
 
 # [1,2,3,4,5].each do |num|
