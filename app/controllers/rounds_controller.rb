@@ -36,7 +36,7 @@ class RoundsController < ApplicationController
   end
 
   def create
-    @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id]), end_time: params[:end_time])
+    @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id]), end_time: DateTime.now + 15.days)
     if @round.save
       participants = []
 
