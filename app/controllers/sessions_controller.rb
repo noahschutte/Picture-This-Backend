@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       render :json => { id: @user.id }
     else
-      render :status => :forbidden
+      # halt(403)
+      render :status => :forbidden, :text => "Login failed"
     end
   end
 
