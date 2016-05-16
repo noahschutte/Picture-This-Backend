@@ -27,28 +27,31 @@ noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "7654321", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "7777777", password: "dan")
 
-Deck.create(name: "Family")
-Deck.create(name: "Friends")
-Deck.create(name: "Frenemies")
+Deck.create(name: "Selfies")
+Deck.create(name: "Celebrity Impressions")
+Deck.create(name: "Find Something")
+Deck.create(name: "Out And About")
+Deck.create(name: "Pets")
+Deck.create(name: "Act It Out")
 
 # Prompts Seed -- 15 prompts in total
-Deck.all.each do |deck|
-  5.times do
-    Prompt.create(deck_id: deck.id, body: random_prompt(prompts))
-  end
-end
-
-
-[1,2,3,4,5].each do |num|
-  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
-  round.participants << noah
-  round.participants << theo
-  round.participants << dan
-end
-
-[1,2,3,4,5].each do |num|
-  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
-  round.participants << noah
-  round.participants << theo
-  round.participants << dan
-end
+# Deck.all.each do |deck|
+#   5.times do
+#     Prompt.create(deck_id: deck.id, body: random_prompt(prompts))
+#   end
+# end
+#
+#
+# [1,2,3,4,5].each do |num|
+#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
+#   round.participants << noah
+#   round.participants << theo
+#   round.participants << dan
+# end
+#
+# [1,2,3,4,5].each do |num|
+#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
+#   round.participants << noah
+#   round.participants << theo
+#   round.participants << dan
+# end
