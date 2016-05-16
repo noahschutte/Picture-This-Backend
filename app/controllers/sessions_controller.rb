@@ -6,17 +6,10 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_rounds_path(@user)
+      render :json => { id: @user.id }
     else
-      @errors = "You entered an incorrect email/password combination"
-      render 'new'
+      render :status => :forbidden
     end
-  end
-
-  def destroy
-    session.clear
-    redirect_to root_path
   end
 
 end
