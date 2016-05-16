@@ -39,16 +39,16 @@ Deck.all.each do |deck|
 end
 
 
-# [1,2,3,4,5].each do |num|
-#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
-#   round.participants << noah
-#   round.participants << theo
-#   round.participants << dan
-# end
-#
-# [1,2,3,4,5].each do |num|
-#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
-#   round.participants << noah
-#   round.participants << theo
-#   round.participants << dan
-# end
+[1,2,3,4,5].each do |num|
+  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
+  round.participants << noah
+  round.participants << theo
+  round.participants << dan
+end
+
+[1,2,3,4,5].each do |num|
+  round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
+  round.participants << noah
+  round.participants << theo
+  round.participants << dan
+end
