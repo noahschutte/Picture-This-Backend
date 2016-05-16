@@ -49,7 +49,7 @@ class RoundsController < ApplicationController
 
       round = {round_id: @round.id, creator_id: @round.creator_id, creator_first_name: @round.creator.first_name, prompt: @round.prompt.body, end_time: @round.end_time}
 
-      render :json => { round: round, participants: participants }
+      render :json => { round: round }
     end
   end
 
