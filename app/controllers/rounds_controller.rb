@@ -25,11 +25,16 @@ class RoundsController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     @rounds = open_rounds(@user)
-    rounds = []
+    open_rounds = []
+    submitted_rounds = []
     @rounds.each do |round|
-      rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      if round.photos.empty?
+        open_rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      else
+        submitted_rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      end
     end
-    render :json => { rounds: rounds }
+    render :json => { open_rounds: open_rounds, submitted_rounds: submitted_rounds }
   end
 
   def new
