@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
-    render :json => { user_id: @user.id }
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
+    if @user.save
+      render :json => { user_id: @user.id }
+    else
+      render :status => :not_modified
+    end
   end
 
   def show
