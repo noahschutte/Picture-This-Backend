@@ -1,22 +1,5 @@
 require 'faker'
 
-prompts = [
-  "rapid",
-  "miscreant",
-  "dreary",
-  "jolly",
-  "three",
-  "possessive",
-  "solid",
-  "bustling",
-  "dead",
-  "nippy",
-  "hilarious",
-  "breakable",
-  "lucky",
-  "electric",
-  "earthy",
-  "elated" ]
 
 def random_prompt(prompts)
   prompt = prompts.sample
@@ -124,7 +107,7 @@ def random_number(digits)
   end
   return number.join('')
 end
-binding.pry
+
  ## Randos
 7.times do
   first_name = Faker::Name.first_name
@@ -133,7 +116,7 @@ binding.pry
   User.create(first_name: first_name, last_name: last_name, email:Faker::Internet.email(full_name), phone: random_phone_number, password:"#{first_name.downcase}")
 end
 
-binding.pry
+
 # [1,2,3,4,5].each do |num|
 #   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
 #   round.participants << noah
