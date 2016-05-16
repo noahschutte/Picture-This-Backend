@@ -25,12 +25,12 @@ end
 
 # Decks seed
 
-Deck.create(name: "Strike A Pose")
-Deck.create(name: "Celebrity Impressions")
-Deck.create(name: "Find Something")
-Deck.create(name: "Out And About")
-Deck.create(name: "Pets")
-Deck.create(name: "Act It Out")
+deck1 = Deck.create(name: "Strike A Pose")
+deck2 = Deck.create(name: "Celebrity Impressions")
+deck3 = Deck.create(name: "Find Something")
+deck4 = Deck.create(name: "Out And About")
+deck5 = Deck.create(name: "Pets")
+deck6 = Deck.create(name: "Act It Out")
 
 selfies_prompts = [
   'Duck Face', # Could be wittier, cooler, etc...
@@ -71,8 +71,32 @@ pets_prompts = [
 act_it_out_prompts = [
   "Dab!",
   "Handstand!",
-  "Star jump!" 
+  "Star jump!"
 ]
+
+selfies_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+end
+
+selfies_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+end
+
+selfies_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+end
+
+selfies_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 1)
+end
+
+selfies_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 5)
+end
+
+act_it_out_prompts.length.times do
+  Prompt.create(body: random_prompt(selfies_prompts), deck_id: 6)
+end
 
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "7654321", password: "theo")
