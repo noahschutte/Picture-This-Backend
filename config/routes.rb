@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :sessions, only: [:create]
-  get "login" => 'sessions#new', :as => "login"
-  get "logout" => 'sessions#destroy', :as => "logout"
 
   resources :users, only:[:new, :create, :show] do
     resources :rounds, only: [:index]
