@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :photos, only: [:show, :create]
   resources :rounds, only: [:create]
 
-  resources :users, only:[:new, :create, :show] do
+  resources :users, only:[:create, :show] do
     resources :rounds, only: [:index]
   end
 
