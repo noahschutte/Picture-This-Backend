@@ -117,14 +117,57 @@ end
 end
 
  # Rounds Seed
+def closed_round(time_ago = 15)
+  return DateTime.now - "#{time_ago}".to_i.days
+end
+
+def open_round(time_ahead = 15)
+  return DateTime.now + "#{time_ahead}".to_i.days
+end
+
+def random_user
+  User.all.sample
+end
+
+def random_admin
+  theo = User.find_by(first_name: 'Theo')
+  noah = User.find_by(first_name: 'Noah')
+  dan = User.find_by(first_name: 'Dan')
+  return [theo, noah, dan].sample
+end
+
+def add_user_to_round(round, user)
+  if round.participants.include?(user)
+    # binding.pry
+    add_user_to_round(round, random_user)
+  else
+    round.participants.push(user)
+  end
+end
+
+def add_creator_to_round(round, creator)
+  add_user_to_round(round, creator)
+end
+
+def add_admin_to_round(round, admin)
+  add_user_to_round(round, admin)
+end
+
+def create_random_participants(round)
+  rand(1..4).times do
+    add_user_to_round(round, random_user)
+  end
+end
+
+Prompt.all.each do |prompt|
+  creator = random_user
+  round = Round.create(creator_id: creator.id, prompt_id: prompt.id, end_time: closed_round)
+  add_creator_to_round(round, creator)
+  add_admin_to_round(round, random_admin)
+  create_random_participants(round)
+end
 
 
-# [1,2,3,4,5].each do |num|
-#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
-#   round.participants << noah
-#   round.participants << theo
-#   round.participants << dan
-# end
 #
 # [1,2,3,4,5].each do |num|
 #   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
