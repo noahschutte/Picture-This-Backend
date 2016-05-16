@@ -113,11 +113,27 @@ noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "9293348660", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "3022427822", password: "dan")
 
+def random_phone_number
+  "#{random_number(3)}#{random_number(3)}#{random_number(4)}"
+end
+
+def random_number(digits)
+  number = []
+  digits.times do
+    number << rand(10)
+  end
+  return number.join('')
+end
+binding.pry
  ## Randos
+7.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  full_name = "#{first_name} #{last_name}"
+  User.create(first_name: first_name, last_name: last_name, email:Faker::Internet.email(full_name), phone: random_phone_number, password:"#{first_name.downcase}")
+end
 
-
-#
-#
+binding.pry
 # [1,2,3,4,5].each do |num|
 #   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
 #   round.participants << noah
