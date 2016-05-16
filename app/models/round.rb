@@ -8,4 +8,22 @@ class Round < ActiveRecord::Base
   has_many :participants, through: :participant_rounds, class_name: "User", foreign_key: :participant_id
   belongs_to :creator, class_name: "User", foreign_key: :creator_id
   belongs_to :prompt
+
+  def self.open_rounds(user)
+    user.rounds.where("end_time > ?", DateTime.now).select do |round|
+      if round.photos.where(user_id: user.id).empty?
+        {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      end
+    end
+  end
+
+  def self.submitted_rounds(user)
+    user.rounds.where("end_time > ?", DateTime.now).select do |round|
+      unless round.photos.where(user_id: user.id).empty?
+        binding.pry
+        {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      end
+    end
+  end
+
 end
