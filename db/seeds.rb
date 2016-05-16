@@ -101,7 +101,6 @@ end
 act_it_out_prompts.length.times do
   Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 6)
 end
-binding.pry
 
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "9293348660", password: "theo")
