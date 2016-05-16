@@ -33,24 +33,26 @@ deck1 = Deck.create(name: "Strike A Pose")
 deck2 = Deck.create(name: "Celebrity Impressions")
 deck3 = Deck.create(name: "Find Something")
 deck4 = Deck.create(name: "Out And About")
-deck5 = Deck.create(name: "Pets")
+deck5 = Deck.create(name: "Pet Pics")
 deck6 = Deck.create(name: "Act It Out")
 
+ # Prompts lists
+
 selfies_prompts = [
-  'Duck Face', # Could be wittier, cooler, etc...
-  "Lookin' Fly",
-  "New Outfit", # Could be wittier, cooler, etc...
-  "Goofy",
-  "Food", # Rethink? Should this be here or can it be its own deck? Later...
-  "Groupie"
+  'Take a selfie with a Duck Face', # Could be wittier, cooler, etc...
+  "Take a selfie Lookin' Fly",
+  "Take a selfie with your New Outfit", # Could be wittier, cooler, etc...
+  "Take a Goofy selfie",
+  "Take a selfie with some Food", # Rethink? Should this be here or can it be its own deck? Later...
+  "Groupie selfie!!!"
 ]
 
 celeb_impressions_prompts = [
-  "Robert De Niro",
-  "Al Pacino",
-  "Batman", # More references to pop culture?
-  "Zoolander",
-  "Sean Connery" # 'Just like your mother, Tribek.'
+  "Best Impression of Robert De Niro",
+  "Best Impression of Al Pacino",
+  "Best Impression of Batman", # More references to pop culture?
+  "Best Impression of Zoolander",
+  "Best Impression of Sean Connery" # 'Just like your mother, Tribek.'
 ]
 
 find_something_prompts = [
@@ -67,17 +69,18 @@ out_and_about_prompts = [
 ]
 
 pets_prompts = [
-  "Cute",
-  "Chillin'",
-  "Playing with its favourite toy"
+  "Take a Cute Photo of your pet",
+  "Take a photo of your pet Chillin'",
+  "Take a photo of your pet Playing with its favourite toy"
 ]
 
 act_it_out_prompts = [
-  "Dab!",
-  "Handstand!",
-  "Star jump!"
+  "Take a picture of a Dab!",
+  "Take a picture of a Handstand!",
+  "Take a picture of a Star jump!"
 ]
 
+# Prompts Seed
 selfies_prompts.length.times do
   Prompt.create!(body: random_prompt(selfies_prompts), deck_id: 1) # Do I have to randomly populate the decks with prompts? Something to consider. Alternatievly I could just call .pop on the container of prompts.
 end
@@ -102,16 +105,17 @@ act_it_out_prompts.length.times do
   Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 6)
 end
 
+# Users seeds
+
+ ## Admins
+
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "9293348660", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "3022427822", password: "dan")
 
-# Prompts Seed -- 15 prompts in total
-# Deck.all.each do |deck|
-#   5.times do
-#     Prompt.create(deck_id: deck.id, body: random_prompt(prompts))
-#   end
-# end
+ ## Randos
+
+
 #
 #
 # [1,2,3,4,5].each do |num|
