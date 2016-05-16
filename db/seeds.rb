@@ -32,17 +32,12 @@ Deck.create(name: "Friends")
 Deck.create(name: "Frenemies")
 
 # Prompts Seed
-5.times do
-  Prompt.create(deck_id: 1, body: random_prompt(prompts))
-
-end
-5.times do
-  Prompt.create!(deck_id: 2, body: random_prompt(prompts))
+Deck.all.each do |deck|
+  5.times do
+    Prompt.create(deck_id: deck.id, body: random_prompt(prompts))
+  end
 end
 
-5.times do
-  Prompt.create(deck_id: 3, body: random_prompt(prompts))
-end
 
 # [1,2,3,4,5].each do |num|
 #   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now - 15)
