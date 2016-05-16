@@ -38,6 +38,7 @@ class RoundsController < ApplicationController
   def create
     @round = Round.new(creator_id: params[:id], prompt_id: select_prompt(params[:deck_id]), end_time: DateTime.now + 15.days)
     if @round.save
+      @round.participants << @round.creator
       participants = []
 
       params[:participants].each do |participant|
@@ -49,7 +50,7 @@ class RoundsController < ApplicationController
 
       round = {round_id: @round.id, creator_id: @round.creator_id, creator_first_name: @round.creator.first_name, prompt: @round.prompt.body, end_time: @round.end_time}
 
-      render :json => { round: round, participants: participants }
+      render :json => { round: round }
     end
   end
 

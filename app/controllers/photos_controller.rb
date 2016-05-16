@@ -26,7 +26,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.create(image: params[:image], round_id: params[:round_id], user_id: params[:user_id], prompt_id: params[:prompt_id])
+    @round = Round.find_by(id: params[:round_id])
+    @photo = Photo.create(image: params[:image], round_id: @round.id, user_id: params[:user_id], prompt_id: @round.prompt.id)
     # Need control flow constraint on pressing submit without picture attached
     # will need error message handling here
     render :json => { status: "Image successfully saved to DB" }
