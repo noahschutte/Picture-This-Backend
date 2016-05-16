@@ -6,14 +6,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
-    # if @user.save
-    #   session[:user_id] = @user.id
-    #   redirect_to user_rounds_path(@user)
-    # else
-    #   #error message handling needed
-    #   @errors = @user.errors.full_messages
-    #   render "new"
-    # end
     render :json => { user_id: @user.id }
   end
 
@@ -24,9 +16,7 @@ class UsersController < ApplicationController
     @rounds.each do |round|
       rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
     end
-
     render :json => { rounds: rounds }
-
   end
 
   def closed_rounds(user)
@@ -37,5 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone, :password)
   end
-
 end
