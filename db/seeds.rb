@@ -161,7 +161,7 @@ end
 
 Prompt.all.each do |prompt|
   creator = random_user
-  round = Round.create(creator_id: creator.id, prompt_id: prompt.id, end_time: closed_round)
+  round = Round.create(creator_id: creator.id, prompt_id: prompt.id, end_time: [closed_round, open_round].sample)
   add_creator_to_round(round, creator)
   add_admin_to_round(round, random_admin)
   create_random_participants(round)
