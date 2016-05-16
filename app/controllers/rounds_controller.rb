@@ -28,7 +28,7 @@ class RoundsController < ApplicationController
     open_rounds = []
     submitted_rounds = []
     @rounds.each do |round|
-      if round.photos.empty?
+      if round.photos.where(user_id: @user.id).empty?
         open_rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
       else
         submitted_rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
