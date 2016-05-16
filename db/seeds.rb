@@ -65,7 +65,13 @@ out_and_about_prompts = [
 pets_prompts = [
   "Cute",
   "Chillin'",
-  "PLaying with its favourite toy"
+  "Playing with its favourite toy"
+]
+
+act_it_out_prompts = [
+  "Dab!",
+  "Handstand!",
+  "Star jump!" 
 ]
 
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
