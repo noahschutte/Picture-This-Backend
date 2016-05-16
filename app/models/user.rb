@@ -23,10 +23,7 @@ class User < ActiveRecord::Base
 
   def self.add_participants(round, participant_list)
     round.participants << round.creator
-    participant_list.map do |name, phone|
-      invite = User.find_by(phone: phone)
-      round.participants << invite
-    end
+    participant_list.map { |name, phone| round.participants << User.find_by(phone: phone) }
   end
 
 end
