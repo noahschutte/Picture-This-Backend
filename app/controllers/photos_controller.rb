@@ -2,9 +2,6 @@ class PhotosController < ApplicationController
 
   def index
     @round = Round.find_by(id: params[:round_id])
-    @photos = Photo.where(round_id: @round.id)
-    # Erase this hard-coded example
-    @photo = Photo.first
     submitted = []
     pending = []
     @round.participants.each do |participant|
@@ -19,17 +16,12 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find_by(id: params[:id])
-    render :json => {
-      photo: { user_id: @photo.user.id, first_name: @photo.user.first_name, prompt: @photo.prompt.body, url: @photo.image_url }
-    }
+    render :json => { photo: { user_id: @photo.user.id, first_name: @photo.user.first_name, prompt: @photo.prompt.body, url: @photo.image_url } }
   end
 
   def create
     @round = Round.find_by(id: params[:round_id])
     @photo = Photo.create(image: params[:image], round_id: @round.id, user_id: params[:user_id], prompt_id: @round.prompt.id)
-    # Need control flow constraint on pressing submit without picture attached
-    # will need error message handling here
-    render :json => { status: "Image successfully saved to DB" }
   end
 
   private

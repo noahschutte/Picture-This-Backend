@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
-
   def create
     @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
     render :json => { user_id: @user.id }
