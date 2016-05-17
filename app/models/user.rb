@@ -14,16 +14,15 @@ class User < ActiveRecord::Base
   end
 
   def closed_rounds
-    self.rounds.where("end_time < ?", DateTime.now)
+    self.rounds.where("end_time < ?", DateTime.now).reverse
   end
 
   def pending_rounds
-    self.open_rounds.find_all { |round| !round.has_photos?(self.id)}
-      binding.pry
+    self.open_rounds.find_all { |round| !round.has_photos?(self.id)}.reverse
   end
 
   def submitted_rounds
-    self.open_rounds.find_all { |round| round.has_photos?(self.id)}
+    self.open_rounds.find_all { |round| round.has_photos?(self.id)}.reverse
   end
 
   def formatted
