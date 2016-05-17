@@ -21,4 +21,8 @@ class Round < ActiveRecord::Base
     {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
   end
 
+  def add_participants(contact_numbers)
+    this.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number)}
+    this.participants << this.creator
+  end
 end
