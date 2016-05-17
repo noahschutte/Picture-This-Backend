@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
   end
 
   def formatted
-    { first_name: self.first_name, photo: self.photos.find_by(round_id: round.id).image_url.to_s }
+    { first_name: self.first_name,
+      photo: self.photos.find_by(round_id: round.id).image_url.to_s }
   end
 
 end
