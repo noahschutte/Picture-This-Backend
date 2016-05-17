@@ -23,7 +23,6 @@ class Round < ActiveRecord::Base
 
   def add_participants(contact_numbers)
     self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
-    self.participants << self.creator
   end
 
   def self.hash_collection(rounds_array)
