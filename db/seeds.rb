@@ -138,7 +138,6 @@ end
 
 def add_user_to_round(round, user)
   if round.participants.include?(user)
-    # binding.pry
     add_user_to_round(round, random_user)
   else
     round.participants.push(user)
@@ -166,12 +165,3 @@ Prompt.all.each do |prompt|
   add_admin_to_round(round, random_admin)
   create_random_participants(round)
 end
-
-
-#
-# [1,2,3,4,5].each do |num|
-#   round = Round.create(creator_id: 1 + rand(3), prompt_id: 1 + rand(15), end_time: DateTime.now + 15)
-#   round.participants << noah
-#   round.participants << theo
-#   round.participants << dan
-# end
