@@ -28,4 +28,22 @@ class Round < ActiveRecord::Base
   def self.hash_collection(rounds_array)
     rounds_array.map { |round| round.attr_hash }
   end
+
+  def submitted_participants
+    self.participants.select { |participant| participant.photos.find_by(round_id: self.id) }
+  end
+
+  def pending_participants
+    self.participants.select { |participant| !participant.photos.find_by(round_id: self.id) }
+  end
+
+  def submitted_participants_formatted
+    self.submitted_participants.map { |user| { first_name: user.first_name,
+      photo: user.photos.find_by(round_id: self.id).image_url.to_s } }
+  end
+
+  def pending_participants_formatted
+    self.pending_participants.map{|user| { first_name: user.first_name } }
+  end
+
 end
