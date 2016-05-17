@@ -6,9 +6,13 @@ class RoundsController < ApplicationController
   end
 
   def create
-    round = Round.create(creator_id: params[:id], prompt_id: Deck.random_prompt(params[:deck_id]), end_time: DateTime.now + 1.days)
-    User.add_participants(round, params[:participants])
-    render :json => { round: Round.formatted(round) }
+    round = Round.new(creator_id: params[:id], prompt_id: Deck.random_prompt(params[:deck_id]), end_time: DateTime.now + 1.days)
+    if round.save
+      round.add_participants(params[:contact_numbers])
+      render :json => { round: Round.formatted(round) }
+    else
+      render :status => :not_modified
+    end
   end
 
 end

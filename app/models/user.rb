@@ -21,9 +21,8 @@ class User < ActiveRecord::Base
     self.open_rounds.select { |round| round.attr_hash if round.has_photos?(self.id) }
   end
 
-  def self.add_participants(round, participant_list)
-    round.participants << round.creator
-    participant_list.map { |name, phone| round.participants << User.find_by(phone: phone) }
+  def formatted
+    { first_name: self.first_name, photo: self.photos.find_by(round_id: round.id).image_url.to_s }
   end
 
 end
