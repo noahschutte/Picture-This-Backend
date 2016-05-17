@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], password: params[:password])
     if user.save
+      session[:user_id] = user.id
       render :json => { user_id: user.id }
     else
       render :status => :not_modified
