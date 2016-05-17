@@ -11,8 +11,22 @@ gloria = User.create(first_name: "Gloria", last_name: "Homer", email: "gwhomer@y
 jerry = User.create(first_name: "Jerry", last_name: "Homer", email: "jerry.homer24@gmail.com", phone: "9195256448", password: "jerry")
 cat = User.create(first_name: "Cat", last_name: "Luo", email: "catharine.luo@gmail.com", phone: "4047024422", password: "cat")
 alex = User.create(first_name: "Alex", last_name: "Homer", email: "realalexhomer@gmail.com", phone: "3022331673", password: "alex")
-#need more users from Dan's contact list
-
+james = User.create(first_name: "James", last_name: "Allred", email: "james@gmail.com", phone: "8043101925", password: "james")
+camden = User.create(first_name: "Camden", last_name: "Asay", email: "camden@gmail.com", phone: "3025315888", password: "camden")
+marge = User.create(first_name: "Marge", last_name: "Creaser", email: "marge@gmail.com", phone: "2073330354", password: "marge")
+danny = User.create(first_name: "Danny", last_name: "Heiber", email: "danny@gmail.com", phone: "5408140305", password: "danny")
+jacob = User.create(first_name: "Jacob", last_name: "Hill", email: "jacob@gmail.com", phone: "7572542179", password: "jacob")
+dustin = User.create(first_name: "Dustin", last_name: "Hillsley", email: "dustin@gmail.com", phone: "3039164564", password: "dustin")
+lindsay = User.create(first_name: "Lindsay", last_name: "Homer", email: "lindsay@gmail.com", phone: "9177044238", password: "lindsay")
+angela = User.create(first_name: "Angela", last_name: "Jones", email: "angela@gmail.com", phone: "7818598863", password: "angela")
+shaun = User.create(first_name: "Shaun", last_name: "Kelly", email: "shaun@gmail.com", phone: "3022995492", password: "shaun")
+martin = User.create(first_name: "Martin", last_name: "Kim", email: "martin@gmail.com", phone: "3126362922", password: "martin")
+missy = User.create(first_name: "Missy", last_name: "Louie", email: "missy@gmail.com", phone: "3022224628", password: "missy")
+brenda = User.create(first_name: "Brenda", last_name: "Luo", email: "brenda@gmail.com", phone: "4048891871", password: "brenda")
+mac = User.create(first_name: "Mac", last_name: "Measley", email: "mac@gmail.com", phone: "3022902535", password: "mac")
+kevin = User.create(first_name: "Kevin", last_name: "Perkins", email: "kevin@gmail.com", phone: "5134040792", password: "kevin")
+john = User.create(first_name: "John", last_name: "Schwartz", email: "john@gmail.com", phone: "9148266138", password: "john")
+thomas = User.create(first_name: "Thomas", last_name: "Will", email: "thomas@gmail.com", phone: "3362624705", password: "thomas")
 
  # Prompts lists
 
