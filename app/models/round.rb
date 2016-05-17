@@ -25,4 +25,8 @@ class Round < ActiveRecord::Base
     self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
     self.participants << self.creator
   end
+
+  def self.hash_collection(rounds_array)
+    rounds_array.map { |round| round.attr_hash }
+  end
 end

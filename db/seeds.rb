@@ -1,14 +1,10 @@
 require 'faker'
 
+# Users seed
 
-def random_prompt(prompts)
-  prompt = prompts.sample
-  if Prompt.find_by(body: prompt)
-    random_prompt(prompts)
-  else
-    return prompt
-  end
-end
+noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noahschutte@gmail.com", phone: "6023016624", password: "noah")
+theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@theinstillery.com", phone: "9293348660", password: "theo")
+dan = User.create(first_name: "Dan", last_name: "Homer", email: "daniel.homer6@gmail.com", phone: "3022427822", password: "dan")
 
 # Decks seed
 
@@ -39,28 +35,29 @@ in_character_prompts = [
 ]
 
 scavenger_hunt_prompts = [
-  "What's That Smell",
-  "Next Greatest Trend",
-  "Next Best Thing",
-  "Inspiration Du Jour"
-]
-
-the_great_outdoors_prompts = [
-  "Landmark",
-  "Scenery",
-  "Sunrise/Sunset"
-]
-
-pets_prompts = [
-  "Take a Cute Photo of your pet",
-  "Take a photo of your pet Chillin'",
-  "Take a photo of your pet Playing with its favourite toy"
+  "Find somethind: exotic",
+  "Find somethind: unique",
+  "Find somethind: repulsive",
+  "Find somethind: frightening",
+  "Find something: edgy"
 ]
 
 act_it_out_prompts = [
   "Take a picture of a Dab!",
   "Take a picture of a Handstand!",
   "Take a picture of a Star jump!"
+]
+
+pet_pics_prompts = [
+  "Take a Cute Photo of your pet",
+  "Take a photo of your pet Chillin'",
+  "Take a photo of your pet Playing with its favourite toy"
+]
+
+the_great_outdoors_prompts = [
+  "Landmark",
+  "Scenery",
+  "Sunrise/Sunset"
 ]
 
 # Prompts Seed
@@ -80,32 +77,12 @@ the_great_outdoors_prompts.length.times do
   Prompt.create(body: random_prompt(the_great_outdoors_prompts), deck_id: 4)
 end
 
-pets_prompts.length.times do
-  Prompt.create(body: random_prompt(pets_prompts), deck_id: 5)
+pet_pics_prompts.length.times do
+  Prompt.create(body: random_prompt(pet_pics_prompts), deck_id: 5)
 end
 
 act_it_out_prompts.length.times do
   Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 6)
-end
-
-# Users seeds
-
- ## Admins
-
-noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noah@email.com", phone: "6023016624", password: "noah")
-theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@email.com", phone: "9293348660", password: "theo")
-dan = User.create(first_name: "Dan", last_name: "Homer", email: "dan@email.com", phone: "3022427822", password: "dan")
-
-def random_phone_number
-  "#{random_number(3)}#{random_number(3)}#{random_number(4)}"
-end
-
-def random_number(digits)
-  number = []
-  digits.times do
-    number << rand(10)
-  end
-  return number.join('')
 end
 
  ## Randos
@@ -164,4 +141,26 @@ Prompt.all.each do |prompt|
   add_creator_to_round(round, creator)
   add_admin_to_round(round, random_admin)
   create_random_participants(round)
+end
+
+def random_prompt(prompts)
+  prompt = prompts.sample
+  if Prompt.find_by(body: prompt)
+    random_prompt(prompts)
+  else
+    return prompt
+  end
+end
+
+
+def random_phone_number
+  "#{random_number(3)}#{random_number(3)}#{random_number(4)}"
+end
+
+def random_number(digits)
+  number = []
+  digits.times do
+    number << rand(10)
+  end
+  return number.join('')
 end
