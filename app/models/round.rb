@@ -30,7 +30,7 @@ class Round < ActiveRecord::Base
   end
 
   def add_participants(contact_numbers)
-    this.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
-    this.participants << this.creator
+    self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
+    self.participants << self.creator
   end
 end
