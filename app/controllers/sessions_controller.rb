@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def get_user_id
-    render :json => { id: session[:user_id] }
+    render :json => { id: session[:user_id], first_name: User.find(session[:user_id]).first_name }
   end
 
   def create
