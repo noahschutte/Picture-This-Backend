@@ -5,6 +5,7 @@ require 'faker'
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noahschutte@gmail.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@theinstillery.com", phone: "9293348660", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "daniel.homer6@gmail.com", phone: "3022427822", password: "dan")
+#need more users from Dan's contact list
 
 # Decks seed
 
@@ -78,7 +79,7 @@ scavenger_hunt_prompts.length.times do
 end
 
 the_great_outdoors_prompts.length.times do
-  Prompt.create(body: random_prompt(the_great_outdoors_prompts), deck_id: 4)
+  Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 4)
 end
 
 pet_pics_prompts.length.times do
@@ -86,7 +87,7 @@ pet_pics_prompts.length.times do
 end
 
 act_it_out_prompts.length.times do
-  Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 6)
+  Prompt.create(body: random_prompt(the_great_outdoors_prompts), deck_id: 6)
 end
 
  ## Randos
