@@ -21,14 +21,6 @@ class Round < ActiveRecord::Base
       end_time: self.end_time }
   end
 
-  def self.formatted(round)
-    { round_id: round.id,
-    creator_id: round.creator_id,
-    creator_first_name: round.creator.first_name,
-    prompt: round.prompt.body,
-    end_time: round.end_time }
-  end
-
   def add_participants(contact_numbers)
     self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
     self.participants << self.creator

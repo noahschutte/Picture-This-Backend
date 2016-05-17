@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     self.open_rounds.select { |round| round.attr_hash if round.has_photos?(self.id) }
   end
 
+  def closed_rounds
+    self.rounds.where("end_time < ?", DateTime.now).select { |round| round.attr_hash }
+  end
+
   def formatted
     { first_name: self.first_name,
       photo: self.photos.find_by(round_id: round.id).image_url.to_s }
