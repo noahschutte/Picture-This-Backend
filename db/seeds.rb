@@ -43,21 +43,25 @@ scavenger_hunt_prompts = [
 ]
 
 act_it_out_prompts = [
-  "Take a picture of a Dab!",
-  "Take a picture of a Handstand!",
-  "Take a picture of a Star jump!"
+  "Act it Out: Handstand",
+  "Act it Out: Plank",
+  "Act it Out: Bust a move",
+  "Act it Out: Heisman"
 ]
 
 pet_pics_prompts = [
-  "Take a Cute Photo of your pet",
-  "Take a photo of your pet Chillin'",
-  "Take a photo of your pet Playing with its favourite toy"
+  "Picture your pet: excited",
+  "Picture your pet: chillin",
+  "Picture your pet: curious",
+  "Picture your pet: sleepy",
+  "Picture your pet: begging"
 ]
 
 the_great_outdoors_prompts = [
-  "Landmark",
-  "Scenery",
-  "Sunrise/Sunset"
+  "Picture: a sunset",
+  "Picture: a landmark",
+  "Picture: the skyline",
+  "Picture: greenery"
 ]
 
 # Prompts Seed
