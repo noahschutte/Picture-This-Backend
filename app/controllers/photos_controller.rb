@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
     round = Round.find_by(id: params[:round_id])
     photo = Photo.new(image: params[:image], round_id: round.id, user_id: params[:user_id], prompt_id: round.prompt.id)
     if photo.save
-      render :status => :not_modified unless photo.save
+      render :json => { photo_id: photo.id }
     else
       render :status => :not_modified
     end
