@@ -4,8 +4,8 @@ class PhotosController < ApplicationController
     round = Round.find_by(id: params[:round_id])
     render :json => {
       participants: {
-        submitted: Photo.submitted_participants(round),
-        pending: Photo.pending_participants(round)
+        submitted: round.submitted_participants_formatted,
+        pending: round.pending_participants_formatted
       }
     }
   end

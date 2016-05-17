@@ -25,9 +25,4 @@ class User < ActiveRecord::Base
     self.open_rounds.find_all { |round| round.has_photos?(self.id)}.reverse
   end
 
-  def formatted
-    { first_name: self.first_name,
-      photo: self.photos.find_by(round_id: round.id).image_url.to_s }
-  end
-
 end
