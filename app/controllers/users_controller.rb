@@ -11,8 +11,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find_by(id: params[:id])
-    rounds = user.closed_rounds
-    render :json => { rounds: rounds }
+    render :json => { rounds: Round.hash_collection(user.closed_rounds) }
   end
 
 end
