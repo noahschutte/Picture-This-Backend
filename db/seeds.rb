@@ -7,14 +7,6 @@ theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@theinstil
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "daniel.homer6@gmail.com", phone: "3022427822", password: "dan")
 #need more users from Dan's contact list
 
-# Decks seed
-
-deck1 = Deck.create(name: "Selfies")
-deck2 = Deck.create(name: "In Character")
-deck3 = Deck.create(name: "Scavenger Hunt")
-deck4 = Deck.create(name: "Act it Out")
-deck5 = Deck.create(name: "Pet Pics")
-deck6 = Deck.create(name: "The Great Outdoors")
 
  # Prompts lists
 
@@ -65,107 +57,132 @@ the_great_outdoors_prompts = [
   "Picture: greenery"
 ]
 
+# Decks seed
+
+deck1 = Deck.create(name: "Selfies")
+deck2 = Deck.create(name: "In Character")
+deck3 = Deck.create(name: "Scavenger Hunt")
+deck4 = Deck.create(name: "Act it Out")
+deck5 = Deck.create(name: "Pet Pics")
+deck6 = Deck.create(name: "The Great Outdoors")
+
 # Prompts Seed
-selfies_prompts.length.times do
-  Prompt.create!(body: random_prompt(selfies_prompts), deck_id: 1) # Do I have to randomly populate the decks with prompts? Something to consider. Alternatievly I could just call .pop on the container of prompts.
+
+selfies_prompts.length.times do |i|
+  Prompt.create(body: selfies_prompts[i], deck_id: 1)
 end
 
-in_character_prompts.length.times do
-  Prompt.create(body: random_prompt(in_character_prompts), deck_id: 2)
+in_character_prompts.length.times do |i|
+  Prompt.create(body: in_character_prompts[i], deck_id: 2)
 end
 
-scavenger_hunt_prompts.length.times do
-  Prompt.create(body: random_prompt(scavenger_hunt_prompts), deck_id: 3)
+scavenger_hunt_prompts.length.times do |i|
+  Prompt.create(body: scavenger_hunt_prompts[i], deck_id: 3)
 end
 
-the_great_outdoors_prompts.length.times do
-  Prompt.create(body: random_prompt(act_it_out_prompts), deck_id: 4)
+the_great_outdoors_prompts.length.times do |i|
+  Prompt.create(body: act_it_out_prompts[i], deck_id: 4)
 end
 
-pet_pics_prompts.length.times do
-  Prompt.create(body: random_prompt(pet_pics_prompts), deck_id: 5)
+pet_pics_prompts.length.times do |i|
+  Prompt.create(body: pet_pics_prompts[i], deck_id: 5)
 end
 
-act_it_out_prompts.length.times do
-  Prompt.create(body: random_prompt(the_great_outdoors_prompts), deck_id: 6)
+act_it_out_prompts.length.times do |i|
+  Prompt.create(body: the_great_outdoors_prompts[i], deck_id: 6)
 end
 
- ## Randos
-17.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  full_name = "#{first_name} #{last_name}"
-  User.create(first_name: first_name, last_name: last_name, email:Faker::Internet.email(full_name), phone: random_phone_number, password:"#{first_name.downcase}")
-end
+round1 = Round.create(creator_id: noah.id, prompt_id: 27, end_time: DateTime.now + 4.days)
+round1.participants << noah
+round1.participants << theo
+round1.participants << dan
 
- # Rounds Seed
-def closed_round(time_ago = 15)
-  return DateTime.now - "#{time_ago}".to_i.days
-end
+round2 = Round.create(creator_id: theo.id, prompt_id: 21, end_time: DateTime.now + 4.days)
+round2.participants << noah
+round2.participants << theo
+round2.participants << dan
 
-def open_round(time_ahead = 15)
-  return DateTime.now + "#{time_ahead}".to_i.days
-end
+round3 = Round.create(creator_id: dan.id, prompt_id: 4, end_time: DateTime.now + 4.days)
+round3.participants << noah
+round3.participants << theo
+round3.participants << dan
 
-def random_user
-  User.all.sample
-end
-
-def random_admin
-  theo = User.find_by(first_name: 'Theo')
-  noah = User.find_by(first_name: 'Noah')
-  dan = User.find_by(first_name: 'Dan')
-  return [theo, noah, dan].sample
-end
-
-def add_user_to_round(round, user)
-  if round.participants.include?(user)
-    add_user_to_round(round, random_user)
-  else
-    round.participants.push(user)
-  end
-end
-
-def add_creator_to_round(round, creator)
-  add_user_to_round(round, creator)
-end
-
-def add_admin_to_round(round, admin)
-  add_user_to_round(round, admin)
-end
-
-def create_random_participants(round)
-  rand(1..4).times do
-    add_user_to_round(round, random_user)
-  end
-end
-
-Prompt.all.each do |prompt|
-  creator = random_user
-  round = Round.create(creator_id: creator.id, prompt_id: prompt.id, end_time: [closed_round, open_round].sample)
-  add_creator_to_round(round, creator)
-  add_admin_to_round(round, random_admin)
-  create_random_participants(round)
-end
-
-def random_prompt(prompts)
-  prompt = prompts.sample
-  if Prompt.find_by(body: prompt)
-    random_prompt(prompts)
-  else
-    return prompt
-  end
-end
-
-
-def random_phone_number
-  "#{random_number(3)}#{random_number(3)}#{random_number(4)}"
-end
-
-def random_number(digits)
-  number = []
-  digits.times do
-    number << rand(10)
-  end
-  return number.join('')
-end
+#  ## Randos
+# 17.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   full_name = "#{first_name} #{last_name}"
+#   User.create(first_name: first_name, last_name: last_name, email:Faker::Internet.email(full_name), phone: random_phone_number, password:"#{first_name.downcase}")
+# end
+#
+#  # Rounds Seed
+# def closed_round(time_ago = 15)
+#   return DateTime.now - "#{time_ago}".to_i.days
+# end
+#
+# def open_round(time_ahead = 15)
+#   return DateTime.now + "#{time_ahead}".to_i.days
+# end
+#
+# def random_user
+#   User.all.sample
+# end
+#
+# def random_admin
+#   theo = User.find_by(first_name: 'Theo')
+#   noah = User.find_by(first_name: 'Noah')
+#   dan = User.find_by(first_name: 'Dan')
+#   return [theo, noah, dan].sample
+# end
+#
+# def add_user_to_round(round, user)
+#   if round.participants.include?(user)
+#     add_user_to_round(round, random_user)
+#   else
+#     round.participants.push(user)
+#   end
+# end
+#
+# def add_creator_to_round(round, creator)
+#   add_user_to_round(round, creator)
+# end
+#
+# def add_admin_to_round(round, admin)
+#   add_user_to_round(round, admin)
+# end
+#
+# def create_random_participants(round)
+#   rand(1..4).times do
+#     add_user_to_round(round, random_user)
+#   end
+# end
+#
+# Prompt.all.each do |prompt|
+#   creator = random_user
+#   round = Round.create(creator_id: creator.id, prompt_id: prompt.id, end_time: [closed_round, open_round].sample)
+#   add_creator_to_round(round, creator)
+#   add_admin_to_round(round, random_admin)
+#   create_random_participants(round)
+# end
+#
+# def random_prompt(prompts)
+#   prompt = prompts.sample
+#   if Prompt.find_by(body: prompt)
+#     random_prompt(prompts)
+#   else
+#     return prompt
+#   end
+# end
+#
+#
+# def random_phone_number
+#   "#{random_number(3)}#{random_number(3)}#{random_number(4)}"
+# end
+#
+# def random_number(digits)
+#   number = []
+#   digits.times do
+#     number << rand(10)
+#   end
+#   return number.join('')
+# end
