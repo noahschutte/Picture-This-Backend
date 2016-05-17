@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
   def pending_rounds
     self.open_rounds.find_all { |round| !round.has_photos?(self.id)}
+      binding.pry
   end
 
   def submitted_rounds
