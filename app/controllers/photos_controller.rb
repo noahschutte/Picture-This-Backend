@@ -25,7 +25,11 @@ class PhotosController < ApplicationController
   def create
     round = Round.find_by(id: params[:round_id])
     photo = Photo.new(image: params[:image], round_id: round.id, user_id: params[:user_id], prompt_id: round.prompt.id)
-    render :status => :not_modified unless photo.save
+    if photo.save
+      render :status => :not_modified unless photo.save
+    else
+      render :status => :not_modified
+    end
   end
 
 end
