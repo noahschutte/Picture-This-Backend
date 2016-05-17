@@ -3,8 +3,8 @@ class RoundsController < ApplicationController
   def index
     user = User.find_by(id: params[:user_id])
     render :json => {
-      pending_rounds: user.pending_rounds,
-      submitted_rounds: user.submitted_rounds
+      pending_rounds: Round.hash_collection(user.pending_rounds),
+      submitted_rounds: Round.hash_collection(user.submitted_rounds)
     }
   end
 

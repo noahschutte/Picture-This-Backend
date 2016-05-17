@@ -14,15 +14,15 @@ class User < ActiveRecord::Base
   end
 
   def pending_rounds
-    self.open_rounds.select { |round| round.attr_hash unless round.has_photos?(self.id) }
+    self.open_rounds.find_all { |round| !round.has_photos?(self.id)}
   end
 
   def submitted_rounds
-    self.open_rounds.select { |round| round.attr_hash if round.has_photos?(self.id) }
+    self.open_rounds.find_all { |round| round.has_photos?(self.id)}
   end
 
   def closed_rounds
-    self.rounds.where("end_time < ?", DateTime.now).select { |round| round.attr_hash }
+    self.rounds.where("end_time < ?", DateTime.now)
   end
 
   def formatted
