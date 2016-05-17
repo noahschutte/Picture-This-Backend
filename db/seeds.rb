@@ -1,10 +1,16 @@
 require 'faker'
 
-# Users seed
+# Seed Users
 
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noahschutte@gmail.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@theinstillery.com", phone: "9293348660", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "daniel.homer6@gmail.com", phone: "3022427822", password: "dan")
+esther = User.create(first_name: "Esther", last_name: "Allred", email: "eallred@gmail.com", phone: "2028213056", password: "esther")
+cooper = User.create(first_name: "Cooper", last_name: "Asay", email: "casay@gmail.com", phone: "3025317433", password: "cooper")
+gloria = User.create(first_name: "Gloria", last_name: "Homer", email: "gwhomer@yahoo.com", phone: "3022706494", password: "gloria")
+jerry = User.create(first_name: "Jerry", last_name: "Homer", email: "jerry.homer24@gmail.com", phone: "9195256448", password: "jerry")
+cat = User.create(first_name: "Cat", last_name: "Luo", email: "catharine.luo@gmail.com", phone: "4047024422", password: "cat")
+alex = User.create(first_name: "Alex", last_name: "Homer", email: "realalexhomer@gmail.com", phone: "3022331673", password: "alex")
 #need more users from Dan's contact list
 
 
@@ -57,7 +63,7 @@ the_great_outdoors_prompts = [
   "Picture: greenery"
 ]
 
-# Decks seed
+# Seed Decks
 
 deck1 = Deck.create(name: "Selfies")
 deck2 = Deck.create(name: "In Character")
@@ -66,7 +72,7 @@ deck4 = Deck.create(name: "Act it Out")
 deck5 = Deck.create(name: "Pet Pics")
 deck6 = Deck.create(name: "The Great Outdoors")
 
-# Prompts Seed
+# Seed Prompts
 
 selfies_prompts.length.times do |i|
   Prompt.create(body: selfies_prompts[i], deck_id: 1)
@@ -92,20 +98,41 @@ act_it_out_prompts.length.times do |i|
   Prompt.create(body: the_great_outdoors_prompts[i], deck_id: 6)
 end
 
-round1 = Round.create(creator_id: noah.id, prompt_id: 27, end_time: DateTime.now + 4.days)
+# Seed Open Rounds
+
+round1 = Round.create(creator_id: noah.id, prompt_id: 7, end_time: DateTime.now + 4.days)
 round1.participants << noah
 round1.participants << theo
 round1.participants << dan
 
-round2 = Round.create(creator_id: theo.id, prompt_id: 21, end_time: DateTime.now + 4.days)
+round2 = Round.create(creator_id: theo.id, prompt_id: 19, end_time: DateTime.now + 4.days)
 round2.participants << noah
 round2.participants << theo
 round2.participants << dan
 
-round3 = Round.create(creator_id: dan.id, prompt_id: 4, end_time: DateTime.now + 4.days)
+round3 = Round.create(creator_id: dan.id, prompt_id: 23, end_time: DateTime.now + 4.days)
 round3.participants << noah
 round3.participants << theo
 round3.participants << dan
+
+# Seed Closed Rounds
+
+round1 = Round.create(creator_id: noah.id, prompt_id: 4, end_time: DateTime.now - 1.days)
+round1.participants << noah
+round1.participants << theo
+round1.participants << dan
+
+round2 = Round.create(creator_id: theo.id, prompt_id: 21, end_time: DateTime.now - 1.days)
+round2.participants << noah
+round2.participants << theo
+round2.participants << dan
+
+round3 = Round.create(creator_id: dan.id, prompt_id: 27, end_time: DateTime.now - 1.days)
+round3.participants << gloria
+round3.participants << jerry
+round3.participants << alex
+round3.participants << dan
+
 
 #  ## Randos
 # 17.times do
