@@ -12,40 +12,40 @@ end
 
 # Decks seed
 
-deck1 = Deck.create(name: "Strike A Pose")
-deck2 = Deck.create(name: "Celebrity Impressions")
-deck3 = Deck.create(name: "Find Something")
-deck4 = Deck.create(name: "Out And About")
+deck1 = Deck.create(name: "Selfies")
+deck2 = Deck.create(name: "In Character")
+deck3 = Deck.create(name: "Scavenger Hunt")
+deck4 = Deck.create(name: "Act it Out")
 deck5 = Deck.create(name: "Pet Pics")
-deck6 = Deck.create(name: "Act It Out")
+deck6 = Deck.create(name: "The Great Outdoors")
 
  # Prompts lists
 
 selfies_prompts = [
-  'Take a selfie with a Duck Face', # Could be wittier, cooler, etc...
-  "Take a selfie Lookin' Fly",
-  "Take a selfie with your New Outfit", # Could be wittier, cooler, etc...
-  "Take a Goofy selfie",
-  "Take a selfie with some Food", # Rethink? Should this be here or can it be its own deck? Later...
-  "Groupie selfie!!!"
+  "Picture: your duckface",
+  "Picture: yourself looking fly",
+  "Picture: your new outfit",
+  "Picture: yourself at your goofiest",
+  "Picture: yourself chowin' down",
+  "Picture: yourself with your squad"
 ]
 
-celeb_impressions_prompts = [
-  "Best Impression of Robert De Niro",
-  "Best Impression of Al Pacino",
-  "Best Impression of Batman", # More references to pop culture?
-  "Best Impression of Zoolander",
-  "Best Impression of Sean Connery" # 'Just like your mother, Tribek.'
+in_character_prompts = [
+  "Picture your best: Zoolander",
+  "Picture your best: Batman",
+  "Picture your best: Pirate",
+  "Picture your best: Michael Jackson",
+  "Picture your best: Spiderman"
 ]
 
-find_something_prompts = [
+scavenger_hunt_prompts = [
   "What's That Smell",
   "Next Greatest Trend",
   "Next Best Thing",
   "Inspiration Du Jour"
 ]
 
-out_and_about_prompts = [
+the_great_outdoors_prompts = [
   "Landmark",
   "Scenery",
   "Sunrise/Sunset"
@@ -68,16 +68,16 @@ selfies_prompts.length.times do
   Prompt.create!(body: random_prompt(selfies_prompts), deck_id: 1) # Do I have to randomly populate the decks with prompts? Something to consider. Alternatievly I could just call .pop on the container of prompts.
 end
 
-celeb_impressions_prompts.length.times do
-  Prompt.create(body: random_prompt(celeb_impressions_prompts), deck_id: 2)
+in_character_prompts.length.times do
+  Prompt.create(body: random_prompt(in_character_prompts), deck_id: 2)
 end
 
-find_something_prompts.length.times do
-  Prompt.create(body: random_prompt(find_something_prompts), deck_id: 3)
+scavenger_hunt_prompts.length.times do
+  Prompt.create(body: random_prompt(scavenger_hunt_prompts), deck_id: 3)
 end
 
-out_and_about_prompts.length.times do
-  Prompt.create(body: random_prompt(out_and_about_prompts), deck_id: 4)
+the_great_outdoors_prompts.length.times do
+  Prompt.create(body: random_prompt(the_great_outdoors_prompts), deck_id: 4)
 end
 
 pets_prompts.length.times do
