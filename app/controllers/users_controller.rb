@@ -14,7 +14,13 @@ class UsersController < ApplicationController
     rounds = closed_rounds(user)
     rounds = []
     rounds.each do |round|
-      rounds << {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+      rounds << {
+        round_id: round.id,
+        creator_id: round.creator_id,
+        creator_first_name: round.creator.first_name,
+        prompt: round.prompt.body,
+        end_time: round.end_time
+      }
     end
     render :json => { rounds: rounds }
   end

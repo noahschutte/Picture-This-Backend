@@ -14,15 +14,23 @@ class Round < ActiveRecord::Base
   end
 
   def attr_hash
-    {round_id: self.id, creator_id: self.creator_id, creator_first_name: self.creator.first_name, prompt: self.prompt.body, end_time: self.end_time}
+    { round_id: self.id,
+      creator_id: self.creator_id,
+      creator_first_name: self.creator.first_name,
+      prompt: self.prompt.body,
+      end_time: self.end_time }
   end
 
   def self.formatted(round)
-    {round_id: round.id, creator_id: round.creator_id, creator_first_name: round.creator.first_name, prompt: round.prompt.body, end_time: round.end_time}
+    { round_id: round.id,
+    creator_id: round.creator_id,
+    creator_first_name: round.creator.first_name,
+    prompt: round.prompt.body,
+    end_time: round.end_time }
   end
 
   def add_participants(contact_numbers)
-    this.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number)}
+    this.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
     this.participants << this.creator
   end
 end
