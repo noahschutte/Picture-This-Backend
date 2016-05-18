@@ -5,6 +5,20 @@ require 'faker'
 noah = User.create(first_name: "Noah", last_name: "Schutte", email: "noahschutte@gmail.com", phone: "6023016624", password: "noah")
 theo = User.create(first_name: "Theo", last_name: "Paul", email: "theo@theinstillery.com", phone: "9293348660", password: "theo")
 dan = User.create(first_name: "Dan", last_name: "Homer", email: "daniel.homer6@gmail.com", phone: "3022427822", password: "dan")
+kevin = User.create(first_name: "Kevin", last_name: "Perkins", email: "kevin@gmail.com", phone: "5134040792", password: "kevin")
+john = User.create(first_name: "John", last_name: "Schwartz", email: "john@gmail.com", phone: "9148266138", password: "john")
+thomas = User.create(first_name: "Thomas", last_name: "Will", email: "thomas@gmail.com", phone: "3362624705", password: "thomas")
+phil = User.create(first_name: "Phil", last_name: "Is The Man", email: "phil@gmail.com", phone: "3334445555", password: "phil")
+leo = User.create(first_name: "Leo", last_name: "Kukhar", email: "leo@gmail.com", phone: "3334446666", password: "leo")
+alex = User.create(first_name: "Alex", last_name: "Forger", email: "alex@gmail.com", phone: "3334447777", password: "alex")
+carl = User.create(first_name: "Carl", last_name: "Conroy", email: "carl@gmail.com", phone: "3334448888", password: "carl")
+ivy = User.create(first_name: "Ivy", last_name: "Vector", email: "ivy@gmail.com", phone: "3334449999", password: "ivy")
+david = User.create(first_name: "David", last_name: "Lange", email: "david@gmail.com", phone: "3334440000", password: "david")
+jackie = User.create(first_name: "Jackie", last_name: "Salmonella", email: "jackie@gmail.com", phone: "6664445555", password: "jackie")
+jason = User.create(first_name: "Jason", last_name: "Allen", email: "jason@gmail.com", phone: "3338885555", password: "jason")
+jon = User.create(first_name: "Jon", last_name: "Schwartz", email: "jon@gmail.com", phone: "9994445555", password: "jon")
+john = User.create(first_name: "John", last_name: "Seo", email: "john@gmail.com", phone: "8884445555", password: "john")
+patrick = User.create(first_name: "Patrick", last_name: "Skelley", email: "patrick@gmail.com", phone: "3337775555", password: "patrick")
 esther = User.create(first_name: "Esther", last_name: "Allred", email: "eallred@gmail.com", phone: "2028213056", password: "esther")
 cooper = User.create(first_name: "Cooper", last_name: "Asay", email: "casay@gmail.com", phone: "3025317433", password: "cooper")
 gloria = User.create(first_name: "Gloria", last_name: "Homer", email: "gwhomer@yahoo.com", phone: "3022706494", password: "gloria")
@@ -24,9 +38,6 @@ martin = User.create(first_name: "Martin", last_name: "Kim", email: "martin@gmai
 missy = User.create(first_name: "Missy", last_name: "Louie", email: "missy@gmail.com", phone: "3022224628", password: "missy")
 brenda = User.create(first_name: "Brenda", last_name: "Luo", email: "brenda@gmail.com", phone: "4048891871", password: "brenda")
 mac = User.create(first_name: "Mac", last_name: "Measley", email: "mac@gmail.com", phone: "3022902535", password: "mac")
-kevin = User.create(first_name: "Kevin", last_name: "Perkins", email: "kevin@gmail.com", phone: "5134040792", password: "kevin")
-john = User.create(first_name: "John", last_name: "Schwartz", email: "john@gmail.com", phone: "9148266138", password: "john")
-thomas = User.create(first_name: "Thomas", last_name: "Will", email: "thomas@gmail.com", phone: "3362624705", password: "thomas")
 
  # Prompts lists
 
@@ -135,6 +146,18 @@ round1 = Round.create(creator_id: noah.id, prompt_id: 4, end_time: DateTime.now 
 round1.participants << noah
 round1.participants << theo
 round1.participants << dan
+round1.participants << phil
+round1.participants << kevin
+round1.participants << leo
+round1.participants << alex
+round1.participants << carl
+round1.participants << david
+round1.participants << ivy
+round1.participants << jackie
+round1.participants << jason
+round1.participants << jon
+round1.participants << john
+round1.participants << patrick
 
 round2 = Round.create(creator_id: theo.id, prompt_id: 22, end_time: DateTime.now - 1.days)
 round2.participants << noah
