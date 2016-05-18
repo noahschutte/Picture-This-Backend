@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :phone, :password, presence: true
   validates :email, :phone, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates_format_of :phone, :with => /^\d{10}$/
+  validates_format_of :phone, :with => /^\d{10}$/, multiline: true
 
   has_many :participant_rounds, foreign_key: :participant_id
   has_many :rounds, through: :participant_rounds
