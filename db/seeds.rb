@@ -32,26 +32,26 @@ thomas = User.create(first_name: "Thomas", last_name: "Will", email: "thomas@gma
 
 selfies_prompts = [
   "Picture: your duckface",
-  "Picture: yourself looking fly",
+  "Picture: your fly self",
   "Picture: your new outfit",
-  "Picture: yourself at your goofiest",
-  "Picture: yourself chowin' down",
-  "Picture: yourself with your squad"
+  "Picture: your goofy self",
+  "Picture: you and your grub",
+  "Picture: you and your squad"
 ]
 
 in_character_prompts = [
   "Picture your best: Zoolander",
   "Picture your best: Batman",
   "Picture your best: Pirate",
-  "Picture your best: Michael Jackson",
+  "Picture your best: Fonzie",
   "Picture your best: Spiderman"
 ]
 
 scavenger_hunt_prompts = [
-  "Find somethind: exotic",
-  "Find somethind: unique",
-  "Find somethind: repulsive",
-  "Find somethind: frightening",
+  "Find something: exotic",
+  "Find something: unique",
+  "Find something: repulsive",
+  "Find something: frightening",
   "Find something: edgy"
 ]
 
