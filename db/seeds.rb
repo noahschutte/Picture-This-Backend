@@ -136,7 +136,7 @@ round1.participants << noah
 round1.participants << theo
 round1.participants << dan
 
-round2 = Round.create(creator_id: theo.id, prompt_id: 21, end_time: DateTime.now - 1.days)
+round2 = Round.create(creator_id: theo.id, prompt_id: 22, end_time: DateTime.now - 1.days)
 round2.participants << noah
 round2.participants << theo
 round2.participants << dan
