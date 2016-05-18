@@ -22,7 +22,7 @@ class Round < ActiveRecord::Base
   end
 
   def add_participants(contact_numbers)
-    self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) }
+    self.participants = contact_numbers.map{ |phone_number| User.find_by(phone: phone_number) } if contact_numbers
     self.participants << User.find(self.creator_id)
   end
 
