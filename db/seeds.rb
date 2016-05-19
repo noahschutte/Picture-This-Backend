@@ -142,25 +142,31 @@ act_it_out_prompts.length.times do |i|
 end
 
 # Seed Open Rounds
-# Find something: Beautiful
-round1 = Round.create(creator_id: noah.id, prompt_id: 12, end_time: DateTime.now + 1.days)
-round1.participants << noah
-round1.participants << theo
-round1.participants << dan
-
-# Picture your pet curious
+# Picture your pet curious #1
 round3 = Round.create(creator_id: theo.id, prompt_id: 23, end_time: DateTime.now + 1.days)
 round3.participants << noah
 round3.participants << theo
 round3.participants << dan
 
-# Seed Closed Rounds
-# Your goofy self
-round1 = Round.create(creator_id: noah.id, prompt_id: 4, end_time: DateTime.now - 1.days)
+# Find something: Beautiful #2
+round1 = Round.create(creator_id: noah.id, prompt_id: 12, end_time: DateTime.now + 1.days)
 round1.participants << noah
 round1.participants << theo
 round1.participants << dan
+
+# Seed Closed Rounds
+# Your goofy self #3
+round1 = Round.create(creator_id: noah.id, prompt_id: 4, end_time: DateTime.now - 1.days)
+round1.participants << iuliia
+round1.participants << zack
+round1.participants << steven
+round1.participants << sam
+round1.participants << ryan
+round1.participants << abby
 round1.participants << phil
+round1.participants << noah
+round1.participants << theo
+round1.participants << dan
 round1.participants << kevin
 round1.participants << leo
 round1.participants << alex
@@ -183,19 +189,14 @@ round1.participants << josh
 round1.participants << julia
 round1.participants << cat
 round1.participants << megan
-round1.participants << ryan
-round1.participants << sam
-round1.participants << steven
-round1.participants << zack
-round1.participants << abby
-round1.participants << iuliia
 
-# pet chillin
+# pet chillin #4
 round2 = Round.create(creator_id: theo.id, prompt_id: 22, end_time: DateTime.now - 1.days)
 round2.participants << noah
 round2.participants << theo
 round2.participants << dan
-# landscape
+
+# landscape #5
 round3 = Round.create(creator_id: dan.id, prompt_id: 27, end_time: DateTime.now - 1.days)
 round3.participants << gloria
 round3.participants << jerry
