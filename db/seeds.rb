@@ -38,16 +38,33 @@ martin = User.create(first_name: "Martin", last_name: "Kim", email: "martin@gmai
 missy = User.create(first_name: "Missy", last_name: "Louie", email: "missy@gmail.com", phone: "3022224628", password: "missy")
 brenda = User.create(first_name: "Brenda", last_name: "Luo", email: "brenda@gmail.com", phone: "4048891871", password: "brenda")
 mac = User.create(first_name: "Mac", last_name: "Measley", email: "mac@gmail.com", phone: "3022902535", password: "mac")
+emily = User.create(first_name: "Mac", last_name: "Measley", email: "emily@gmail.com", phone: "3022902535", password: "emily")
+ayaz = User.create(first_name: "Ayaz", last_name: "Ayaz", email: "ayaz@gmail.com", phone: "3021902535", password: "ayaz")
+bobby = User.create(first_name: "Bobby", last_name: "Bobby", email: "bobby@gmail.com", phone: "3021602535", password: "bobby")
+brian = User.create(first_name: "Brian", last_name: "Brian", email: "brian@gmail.com", phone: "3021902565", password: "brian")
+hanna = User.create(first_name: "Hanna", last_name: "Hanna", email: "hanna@gmail.com", phone: "3521902535", password: "hanna")
+jillian = User.create(first_name: "Jillian", last_name: "Jillian", email: "jillian@gmail.com", phone: "4021902535", password: "jillian")
+joe = User.create(first_name: "Joe", last_name: "Joe", email: "joe@gmail.com", phone: "9021902535", password: "joe")
+josh = User.create(first_name: "Josh", last_name: "Josh", email: "josh@gmail.com", phone: "3021905535", password: "josh")
+julia = User.create(first_name: "Julia", last_name: "Julia", email: "julia@gmail.com", phone: "3071905535", password: "julia")
+cat = User.create(first_name: "Cat", last_name: "Cat", email: "cat@gmail.com", phone: "3521905535", password: "cat")
+megan = User.create(first_name: "Megan", last_name: "Megan", email: "megan@gmail.com", phone: "3021905235", password: "megan")
+ryan = User.create(first_name: "Ryan", last_name: "Ryan", email: "ryan@gmail.com", phone: "3021905534", password: "ryan")
+sam = User.create(first_name: "Sam", last_name: "Sam", email: "sam@gmail.com", phone: "3025905535", password: "sam")
+steven = User.create(first_name: "Steven", last_name: "Steven", email: "steven@gmail.com", phone: "3021905595", password: "steven")
+zack = User.create(first_name: "Zack", last_name: "Zack", email: "zack@gmail.com", phone: "3028905535", password: "zack")
+abby = User.create(first_name: "Abby", last_name: "Abby", email: "abby@gmail.com", phone: "3021975535", password: "abby")
+mark = User.create(first_name: "Mark", last_name: "Mark", email: "mark@gmail.com", phone: "3021765535", password: "mark")
 
  # Prompts lists
 
 selfies_prompts = [
   "Picture: your duckface",
   "Picture: your fly self",
-  "Picture: your new outfit",
+  "Picture: your duckface",
   "Picture: your goofy self",
-  "Picture: you and your grub",
-  "Picture: you and your squad"
+  "Picture: you and your squad",
+  "Picture: your duckface"
 ]
 
 in_character_prompts = [
@@ -59,7 +76,7 @@ in_character_prompts = [
 ]
 
 scavenger_hunt_prompts = [
-  "Find something: exotic",
+  "Find something: beautiful",
   "Find something: unique",
   "Find something: repulsive",
   "Find something: frightening",
@@ -124,24 +141,20 @@ act_it_out_prompts.length.times do |i|
 end
 
 # Seed Open Rounds
-
-round1 = Round.create(creator_id: noah.id, prompt_id: 7, end_time: DateTime.now + 4.days)
+# Find something: Beautiful
+round1 = Round.create(creator_id: noah.id, prompt_id: 12, end_time: DateTime.now + 1.days)
 round1.participants << noah
 round1.participants << theo
 round1.participants << dan
 
-round2 = Round.create(creator_id: theo.id, prompt_id: 19, end_time: DateTime.now + 4.days)
-round2.participants << noah
-round2.participants << theo
-round2.participants << dan
-
-round3 = Round.create(creator_id: dan.id, prompt_id: 23, end_time: DateTime.now + 4.days)
+# Picture your pet curious
+round3 = Round.create(creator_id: theo.id, prompt_id: 23, end_time: DateTime.now + 1.days)
 round3.participants << noah
 round3.participants << theo
 round3.participants << dan
 
 # Seed Closed Rounds
-
+# Your goofy self
 round1 = Round.create(creator_id: noah.id, prompt_id: 4, end_time: DateTime.now - 1.days)
 round1.participants << noah
 round1.participants << theo
@@ -158,12 +171,30 @@ round1.participants << jason
 round1.participants << jon
 round1.participants << john
 round1.participants << patrick
+round1.participants << ayaz
+round1.participants << brian
+round1.participants << emily
+round1.participants << bobby
+round1.participants << hanna
+round1.participants << jillian
+round1.participants << joe
+round1.participants << josh
+round1.participants << julia
+round1.participants << cat
+round1.participants << megan
+round1.participants << ryan
+round1.participants << sam
+round1.participants << steven
+round1.participants << zack
+round1.participants << abby
+round1.participants << iuliia
 
+# pet chillin
 round2 = Round.create(creator_id: theo.id, prompt_id: 22, end_time: DateTime.now - 1.days)
 round2.participants << noah
 round2.participants << theo
 round2.participants << dan
-
+# landscape
 round3 = Round.create(creator_id: dan.id, prompt_id: 27, end_time: DateTime.now - 1.days)
 round3.participants << gloria
 round3.participants << jerry
