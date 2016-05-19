@@ -196,7 +196,7 @@ round2.participants << noah
 round2.participants << theo
 round2.participants << dan
 
-# landscape #5
+# landmarks #5
 round3 = Round.create(creator_id: dan.id, prompt_id: 27, end_time: DateTime.now - 1.days)
 round3.participants << gloria
 round3.participants << jerry
