@@ -55,6 +55,7 @@ steven = User.create(first_name: "Steven", last_name: "Steven", email: "steven@g
 zack = User.create(first_name: "Zack", last_name: "Zack", email: "zack@gmail.com", phone: "3028905535", password: "zack")
 abby = User.create(first_name: "Abby", last_name: "Abby", email: "abby@gmail.com", phone: "3021975535", password: "abby")
 mark = User.create(first_name: "Mark", last_name: "Mark", email: "mark@gmail.com", phone: "3021765535", password: "mark")
+iuliia = User.create(first_name: "Iuliia", last_name: "Iuliia", email: "iuliia@gmail.com", phone: "3098765575", password: "iuliia")
 
  # Prompts lists
 
