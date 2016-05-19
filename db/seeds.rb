@@ -61,10 +61,10 @@ mark = User.create(first_name: "Mark", last_name: "Mark", email: "mark@gmail.com
 selfies_prompts = [
   "Picture: your duckface",
   "Picture: your fly self",
-  "Picture: your duckface",
+  "Picture: your Duckface",
   "Picture: your goofy self",
   "Picture: you and your squad",
-  "Picture: your duckface"
+  "Picture: your duck face"
 ]
 
 in_character_prompts = [
