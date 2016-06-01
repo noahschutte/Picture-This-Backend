@@ -1,7 +1,7 @@
 # Picture This
 
-#### Use the app
-TBA
+#### View the Frontend Code
+https://github.com/dchome/Picture-This-Frontend
 
 ## Our Vision
 To bring people together by sharing experiences through photography.
@@ -18,7 +18,7 @@ https://github.com/theomarkkuspaul
 https://github.com/noahschutte
 
 ## Contact Us with feedback or appreciation
-theo.markkus.paul@gmail.com 
+theo.markkus.paul@gmail.com
 
 daniel.homer6@gmail.com
 
